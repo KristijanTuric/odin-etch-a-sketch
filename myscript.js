@@ -12,11 +12,18 @@ document.body.appendChild(container);
 let div = document.createElement('div');
 div.className = "grid";
 div.style.width = div.style.height = gridCellSize.toString() + "px";
+div.style.backgroundColor = 'white';
 
-// Hover effect over element
-container.addEventListener('mouseover', function () {
-    div.style.backgroundColor = 'blue';
+// Hover effect over element (doesn't get erased automatically)
+container.addEventListener('mouseover', function (event) {
+    event.target.style.backgroundColor = 'blue';
 })
+
+/* Erases the color
+container.addEventListener('mouseout', function(event) {
+    event.target.style.backgroundColor = 'white';
+})
+*/
 
 // Appending the appropriate number of children to the container
 for(let i = 0; i < gridSize; i++)
@@ -26,5 +33,3 @@ for(let i = 0; i < gridSize; i++)
         container.appendChild(div.cloneNode(true));
     }
 }
-
-
