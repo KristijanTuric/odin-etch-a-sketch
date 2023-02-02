@@ -1,4 +1,22 @@
-div div {
-    outline: 1px solid;
+div div 
+{
     float: left;
+}
+
+h1
+{
+    text-align: center;
+    font-size: 500%;
+}
+
+body
+{
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: column;
+}
+
+.copyright
+{
+    align-self: center;
 }

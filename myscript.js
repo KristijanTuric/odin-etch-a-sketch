@@ -1,23 +1,46 @@
-const gridCellSize = 30;
-const gridSize = 16;
-const containerWidth = gridCellSize * gridSize;
+const gridSize = 64;
 
 // Creating the container
 let container = document.createElement('div');
 container.className = "container";
-container.style.width = containerWidth.toString() + "px"; // gridCellSize * gridSize
+
+// Make the container size constant, we will only change the number of small squares in the container
+container.style.width = "500px";
+container.style.height = "500px";
+
+container.style.outline = "solid";
+container.style.alignSelf = "center";
+
 document.body.appendChild(container);
 
 // Creating the elements for the container (cells)
 let div = document.createElement('div');
 div.className = "grid";
-div.style.width = div.style.height = gridCellSize.toString() + "px";
+
+// Divide the side of the container with the gridSize to get the number side of the small square in the container
+div.style.width = div.style.height = (500/gridSize).toString() + "px" ;
+
 div.style.backgroundColor = 'white';
 
 // Hover effect over element (doesn't get erased automatically)
-container.addEventListener('mouseover', function (event) {
-    event.target.style.backgroundColor = 'blue';
-})
+
+// Checks if the left mouse button is held down,
+// if it is then we change the color otherwise nothing happens
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
+console.log(container.addEventListener('mouseover', function (event) {
+    if (mouseDown)
+    {
+        event.target.style.backgroundColor = 'lightblue';
+    }
+    
+}));
+
+
+
+
 
 /* Erases the color
 container.addEventListener('mouseout', function(event) {
