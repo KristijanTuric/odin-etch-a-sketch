@@ -13,6 +13,7 @@ Extra stuff I did:
  - [X] User will now only draw when the left mouse button is being held down
  - [X] Removed dragging as it interfiered with drawing when the mouse was held over an already colored square
  - [X] Added a Clear button
+ - [X] Made the grid size selector, a range type selector
  - [ ] Fix a bug where you need to swipe into the cell to color it, should be on click too
  - [ ] Added color picking functionality
  - [ ] Make a button that makes your colors random, rainbow color button
