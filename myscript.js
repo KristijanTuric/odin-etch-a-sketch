@@ -64,6 +64,24 @@ btnClear.addEventListener('click', function() {
     MakeNewGrid(gridSize);
 });
 
+// Change the grid value text
+let gridText = document.getElementById("gridValue");
+
+// Grid Size Slider
+let inputGridSlider = document.getElementById("gridValueSlider");
+
+inputGridSlider.addEventListener('input', function() {
+    gridText.textContent = inputGridSlider.value.toString() + " x " + inputGridSlider.value.toString();
+});
+
+inputGridSlider.addEventListener('change', function() {
+    gridSize = inputGridSlider.value;
+    RemoveAllChildren();
+    MakeNewGrid(gridSize);
+});
+
+
+
 // Button that asks for input and changes gridSize to the input
 let btnGrid = document.getElementById("btnGrid");
 

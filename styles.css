@@ -11,6 +11,7 @@ h1
 
 body
 {
+    position: relative;
     background-color: lightcyan;
     display: flex;
     flex-direction: column;
@@ -45,7 +46,7 @@ body
     margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
-    margin-right: 425px;
+    margin-right: auto;
     margin-left: 100px;
 }
 
@@ -53,5 +54,11 @@ body
 {
     display: flex;
     flex-direction: column;
-    
+    margin-right: 125px;
+}
+
+#gridValue
+{
+    text-align: center;
+    font-weight: bold;
 }
