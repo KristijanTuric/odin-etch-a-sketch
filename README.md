@@ -15,6 +15,6 @@ Extra stuff I did:
  - [X] Added a Clear button
  - [X] Made the grid size selector, a range type selector
  - [ ] Fix a bug where you need to swipe into the cell to color it, should be on click too
- - [ ] Added color picking functionality
- - [ ] Make a button that makes your colors random, rainbow color button
- - [ ] Eraser button
+ - [X] Added color picking functionality
+ - [X] Make a button that makes your colors random, rainbow color button
+ - [X] Eraser button
