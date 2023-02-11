@@ -22,11 +22,11 @@ body
     align-self: center;
 }
 
-#btnGrid, #btnClear
+#btnDraw, #btnClear, #btnEraser, #btnRainbow
 {
     margin-bottom: 25px;
     align-self: left;
-    background-color: #3882F6;
+    background-color: burlywood;
     font-weight: bold;
     font-size: 16px;
     height: 50px;
@@ -37,8 +37,19 @@ body
     border-style: solid;
 }
 
-#btnGrid:active, #btnClear:active {
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+#btnDraw:active, #btnClear:active, #btnEraser:active, #btnRainbow:active
+{
+    box-shadow: 3px 2px 22px 1px rgba(103, 95, 95, 0.513);
+}
+
+#btnDraw:hover, #btnClear:hover, #btnEraser:hover, #btnRainbow:hover
+{
+    background-color: rebeccapurple;
+}
+
+#btnDraw:visited
+{
+    background-color: black;
 }
 
 #content
@@ -55,10 +66,41 @@ body
     display: flex;
     flex-direction: column;
     margin-right: 125px;
+    align-items: center;
 }
 
 #gridValue
 {
     text-align: center;
     font-weight: bold;
+}
+
+#inputColorPicker
+{
+    height: 100px;
+    width: 100px;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+#inputColorPicker::-webkit-color-swatch
+{
+    border-radius: 50px;
+    border: none;
+}
+
+#inputColorPicker::-moz-color-swatch
+{
+    border-radius: 50px;
+    border: none;
+}
+
+
+#gridValueSlider
+{
+    width: 400px;
+    background: red;
 }

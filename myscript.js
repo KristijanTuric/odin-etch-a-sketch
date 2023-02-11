@@ -1,6 +1,11 @@
 //#region Making a starting container and grid 16x16
 
+// The grid size used for generating the grid
 var gridSize = 16;
+
+// The color used for drawing
+var color = 'black';
+var flag = 0;
 
 // Creating the container
 let container = document.createElement('div');
@@ -30,8 +35,6 @@ MakeNewGrid(gridSize);
 
 //#region Drawing on the grid
 
-// Hover effect over element (doesn't get erased automatically)
-
 // Checks if the left mouse button is held down,
 // if it is then we change the color otherwise nothing happens
 let mouseDown = false
@@ -41,16 +44,10 @@ document.body.onmouseup = () => (mouseDown = false)
 container.addEventListener('mouseover', function (event) {
     if (mouseDown)
     {
-        event.target.style.backgroundColor = 'lightblue';
+        event.target.style.backgroundColor = color;
     }
     
 });
-
-/* Erases the color
-container.addEventListener('mouseout', function(event) {
-    event.target.style.backgroundColor = 'white';
-})
-*/
 
 //#endregion
 
@@ -80,20 +77,48 @@ inputGridSlider.addEventListener('change', function() {
     MakeNewGrid(gridSize);
 });
 
+// Button for Eraser
+let btnEraser = document.getElementById("btnEraser");
 
+btnEraser.addEventListener('click', function() {
+    color = 'white';
+    flag = 0;
+    btnEraser.style.backgroundColor = "black";
+    btnDraw.style.backgroundColor = "burlywood";
+    btnRainbow.style.backgroundColor = "burlywood";
+});
 
-// Button that asks for input and changes gridSize to the input
-let btnGrid = document.getElementById("btnGrid");
+// Take the input from the color picker to change the color of the brush
+let inputColor = document.getElementById("inputColorPicker");
 
-btnGrid.addEventListener('click', function() {
-    let input = prompt("Enter the desired grid size:");
-    if (inputCheck(input))
+inputColor.addEventListener('change', function() {
+    color = inputColor.value.toString();
+});
+
+// Button that switches to drawing mode with the selected color
+let btnDraw = document.getElementById("btnDraw");
+
+btnDraw.addEventListener('click', function() {
+    color = inputColor.value.toString();
+    flag = 0;
+    btnEraser.style.backgroundColor = "burlywood";
+    btnDraw.style.backgroundColor = "black";
+    btnRainbow.style.backgroundColor = "burlywood";
+});
+
+// Button that makes randomizes the color in each cell while you draw
+let btnRainbow = document.getElementById("btnRainbow");
+btnRainbow.addEventListener('click', function() {
+    flag = 1;
+    btnEraser.style.backgroundColor = "burlywood";
+    btnDraw.style.backgroundColor = "burlywood";
+    btnRainbow.style.backgroundColor = "black";
+});
+
+container.addEventListener('mouseover', function (event) {
+    if (mouseDown && flag == 1)
     {
-        gridSize = Number(input);
-        console.log(gridSize);
-
-        RemoveAllChildren();
-        MakeNewGrid(gridSize);
+        color = '#'+(0x1000000+Math.random()*0xffffff).toString(16).slice(1, 7);
     }
     
 });
